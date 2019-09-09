@@ -8,6 +8,16 @@ def check_HDL(HDL_result):
     else: 
         return "Low"
         
+def check_LDL(LDL_result):
+    if LDL_result >= 190:
+        return "Very High"
+    elif 160 <= LDL_result <190:
+        return "High"
+    elif 130 <= LDL_result <160:
+        return "Borderline High"
+    else:
+        return "Normal"
+        
 def cholesterol_interface():
     print("Checking Cholesterol Results:")
     cholInput = input("Enter your cholesterol test results (in format 'test=result' with test options HDL or LDL): ")
@@ -15,6 +25,9 @@ def cholesterol_interface():
     if cholData[0] == "HDL":
         print("Your HDL result is {}".format(cholData[1]))
         print(check_HDL(int(cholData[1])))
+    elif cholData[0] == "LDL":
+        print("Your LDL result is {}".format(cholData[1]))
+        print(check_LDL(int(cholData[1])))
 
 def interface():
     print("Caluculator Program:")
